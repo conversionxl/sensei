@@ -841,7 +841,7 @@ class Sensei_Frontend {
 	 *
 	 * @param int $lesson_id Lesson ID.
 	 */
-	private function maybe_redirect_to_next_lesson( $lesson_id = 0 ) {
+	public function maybe_redirect_to_next_lesson( $lesson_id = 0 ) {
 		if ( 0 >= $lesson_id ) {
 			return;
 		}
