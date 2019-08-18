@@ -63,9 +63,14 @@ class Sensei_Settings_API {
 	 */
 	public function register_hook_listener() {
 
-		add_action( 'admin_menu', array( $this, 'register_settings_screen' ), 60 );
-		add_action( 'admin_init', array( $this, 'settings_fields' ) );
-		add_action( 'init', array( $this, 'general_init' ), 5 );
+		// @see https://github.com/Automattic/sensei/issues/2327
+		if ( is_admin() && ! wp_doing_ajax() ) {
+
+			add_action( 'admin_menu', array( $this, 'register_settings_screen' ), 60 );
+			add_action( 'admin_init', array( $this, 'settings_fields' ) );
+			add_action( 'init', array( $this, 'general_init' ), 5 );
+
+		}
 
 	} // End setup_settings()
 
