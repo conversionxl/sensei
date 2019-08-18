@@ -1,0 +1,1 @@
+/home/warmpress/deploy.php

@@ -153,6 +153,7 @@ add_action( 'sensei_single_course_modules_before', array( 'Sensei_Core_Modules',
 add_action( 'sensei_single_course_modules_after', array( 'Sensei_Core_Modules', 'teardown_single_course_module_loop' ) );
 
 // @since 1.9.0
+// @todo `lesson` post type must become "Start course" capable
 // Course meta
 add_action( 'sensei_single_course_content_inside_before', array( 'Sensei_Course', 'the_course_enrolment_actions' ), 30 );
 add_action( 'sensei_single_course_content_inside_before', array( 'Sensei_Course', 'the_course_video' ), 40 );
