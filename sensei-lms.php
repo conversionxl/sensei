@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Sensei LMS
+ * Plugin Name: Sensei LMS (git)
  * Plugin URI: https://woocommerce.com/products/sensei/
  * Description: Share your knowledge, grow your network, and strengthen your brand by launching an online course.
  * Version: 2.4.0
@@ -12,6 +12,7 @@
  * Requires PHP: 5.6
  * Text Domain: sensei-lms
  * Domain path: /lang/
+ * Update URI: false
  */
 
 /**

@@ -1,5 +1,5 @@
 {
-	"name": "automattic/sensei-lms",
+	"name": "plugins/sensei-lms",
 	"description": "A learning management plugin for WordPress, which provides the smoothest platform for helping you teach anything.",
 	"require-dev": {
 		"php": "^5.4 || ^7",
@@ -12,5 +12,9 @@
 		"sirbrillig/phpcs-variable-analysis": "^2.6",
 		"sirbrillig/phpcs-no-get-current-user": "^1.0"
 	},
-	"prefer-stable": true
+	"prefer-stable": true,
+	"scripts": {
+		"deploy": "dep deploy --hosts=conversionxl.com -o application=$(composer config name)",
+		"rollback": "dep rollback --hosts=conversionxl.com -o application=$(composer config name)"
+	}
 }
