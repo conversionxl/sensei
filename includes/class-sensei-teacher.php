@@ -363,7 +363,13 @@ class Sensei_Teacher {
 		self::update_course_modules_author( $course_id, $new_author );
 
 		// notify the new teacher
-		$this->teacher_course_assigned_notification( $new_author, $course_id );
+		/**
+		 * How about we don't?
+		 * 
+		 * @author leho
+		 * @since 2020.01.09
+		 */
+		// $this->teacher_course_assigned_notification( $new_author, $course_id );
 
 	} // end save_teacher_meta_box
 
