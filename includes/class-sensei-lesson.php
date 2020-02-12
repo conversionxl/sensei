@@ -4279,17 +4279,13 @@ class Sensei_Lesson {
 				if ( self::lesson_quiz_has_questions( $lesson_id ) ) {
 					?>
 
-					<p>
-
-						<a class="button"
-						   href="<?php echo esc_url( get_permalink( $quiz_id ) ); ?>"
-						   title="<?php esc_attr_e( 'View the Lesson Quiz', 'sensei-lms' ); ?>">
-
+						<vaadin-button
+						   onclick="window.location.href='<?php echo esc_url( get_permalink( $quiz_id ) ); ?>'"
+						   theme="primary"
+						>
+							<iron-icon icon="lumo:arrow-right" slot="suffix"></iron-icon>
 							<?php esc_html_e( 'View the Lesson Quiz', 'sensei-lms' ); ?>
-
-						</a>
-
-					</p>
+						</vaadin-button>
 
 					<?php
 				}

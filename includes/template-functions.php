@@ -117,12 +117,19 @@ function sensei_start_course_form( $course_id ) {
 	$prerequisite_complete = sensei_check_prerequisite_course( $course_id );
 
 	if ( $prerequisite_complete ) {
-		?><form method="POST" action="<?php echo esc_url( get_permalink( $course_id ) ); ?>">
-
+		?><form id="sensei_start_course_form" method="POST" action="<?php echo esc_url( get_permalink( $course_id ) ); ?>">
 				<input type="hidden" name="<?php echo esc_attr( 'woothemes_sensei_start_course_noonce' ); ?>" id="<?php echo esc_attr( 'woothemes_sensei_start_course_noonce' ); ?>" value="<?php echo esc_attr( wp_create_nonce( 'woothemes_sensei_start_course_noonce' ) ); ?>" />
-
-				<span><input name="course_start" type="submit" class="course-start" value="<?php esc_html_e( 'Start taking this Course', 'sensei-lms' ); ?>"/></span>
-
+				<input type="hidden" name="course_start" value="1"/>
+				<vaadin-button
+					name="course_start"
+					type="submit"
+					class="course-start"
+					theme="primary"
+					onclick="document.getElementById('sensei_start_course_form').submit()"
+				>
+					<iron-icon icon="lumo:arrow-right" slot="suffix"></iron-icon>
+					<?php esc_html_e( 'Start taking this Course', 'sensei-lms' ); ?>
+				</vaadin-button>
 			</form>
 			<?php
 	} // End If Statement

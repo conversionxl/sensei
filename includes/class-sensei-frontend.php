@@ -1040,7 +1040,7 @@ class Sensei_Frontend {
 
 		if ( false === Sensei()->lesson->lesson_has_quiz_with_questions_and_pass_required( $lesson_id ) ) {
 			?>
-			<form class="lesson_button_form" method="POST" action="<?php echo esc_url( get_permalink() ); ?>">
+			<form id="sensei_lesson_button_form" class="lesson_button_form" method="POST" action="<?php echo esc_url( get_permalink() ); ?>">
 				<input type="hidden"
 					   name="woothemes_sensei_complete_lesson_noonce"
 					   id="woothemes_sensei_complete_lesson_noonce"
@@ -1048,11 +1048,17 @@ class Sensei_Frontend {
 				/>
 
 				<input type="hidden" name="quiz_action" value="lesson-complete" />
+				<input type="hidden" name="quiz_complete" class="quiz-submit complete" value="1"/>
 
-				<input type="submit"
-					   name="quiz_complete"
-					   class="quiz-submit complete"
-					   value="<?php esc_attr_e( 'Complete Lesson', 'sensei-lms' ); ?>"/>
+				<vaadin-button type="submit"
+				   name="quiz_complete"
+				   class="quiz-submit complete"
+				   theme="primary"
+				   onclick="document.getElementById('sensei_lesson_button_form').submit();"
+				>
+					<iron-icon icon="vaadin:check-circle" slot="prefix"></iron-icon>
+					<?php esc_html_e( 'Complete Lesson', 'sensei-lms' ); ?>
+				</vaadin-button>
 
 			</form>
 			<?php
@@ -1076,7 +1082,7 @@ class Sensei_Frontend {
 		}
 		if ( ! $quiz_id || ! empty( $reset_allowed ) ) {
 			?>
-		<form method="POST" action="<?php echo esc_url( get_permalink() ); ?>">
+		<form id="sensei_lesson_button_form" method="POST" action="<?php echo esc_url( get_permalink() ); ?>">
 
 			<input
 			type="hidden"
@@ -1085,8 +1091,18 @@ class Sensei_Frontend {
 			value="<?php echo esc_attr( wp_create_nonce( 'woothemes_sensei_complete_lesson_noonce' ) ); ?>" />
 
 			<input type="hidden" name="quiz_action" value="lesson-reset" />
+			<input type="hidden" name="quiz_complete" class="quiz-submit reset" value="1"/>
 
-			<input type="submit" name="quiz_complete" class="quiz-submit reset" value="<?php esc_attr_e( 'Reset Lesson', 'sensei-lms' ); ?>"/>
+			<vaadin-button
+				type="submit"
+				name="quiz_complete"
+				class="quiz-submit reset"
+				theme="primary contrast"
+				onclick="document.getElementById('sensei_lesson_button_form').submit()"
+			>
+				<iron-icon icon="lumo:reload" slot="prefix"></iron-icon>
+				<?php esc_html_e( 'Reset Lesson', 'sensei-lms' ); ?>
+			</vaadin-button>
 
 		</form>
 			<?php
