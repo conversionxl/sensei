@@ -35,10 +35,10 @@ class Sensei_Quiz {
 		add_action( 'template_redirect', array( $this, 'reset_button_click_listener' ) );
 
 		// fire the complete quiz button submit for grading action
-		add_action( 'sensei_single_quiz_content_inside_before', array( $this, 'user_quiz_submit_listener' ) );
+		add_action( 'template_redirect', array( $this, 'user_quiz_submit_listener' ) );
 
 		// fire the save user answers quiz button click responder
-		add_action( 'sensei_single_quiz_content_inside_before', array( $this, 'user_save_quiz_answers_listener' ) );
+		add_action( 'template_redirect', array( $this, 'user_save_quiz_answers_listener' ) );
 
 		// fire the load global data function
 		add_action( 'sensei_single_quiz_content_inside_before', array( $this, 'load_global_quiz_data' ), 80 );
@@ -149,6 +149,8 @@ class Sensei_Quiz {
 
 		// remove the hook as it should only fire once per click
 		remove_action( 'sensei_single_quiz_content_inside_before', 'user_save_quiz_answers_listener' );
+
+		wp_safe_redirect( get_permalink() );
 
 	} // end user_save_quiz_answers_listener
 
@@ -325,6 +327,8 @@ class Sensei_Quiz {
 		$quiz_answers = $this->merge_quiz_answers_with_questions_asked( $_POST, $post->ID );
 
 		self::submit_answers_for_grading( $quiz_answers, $_FILES, $lesson_id, $current_user->ID );
+
+		wp_safe_redirect( get_permalink() );
 
 	} // End sensei_complete_quiz()
 
