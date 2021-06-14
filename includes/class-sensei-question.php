@@ -864,9 +864,26 @@ class Sensei_Question {
 		$final_message = apply_filters( 'sensei_question_answer_message_text', $answer_message, $lesson_id, $question_id, get_current_user_id(), $user_correct );
 		?>
 		<div class="answer_message <?php echo esc_attr( $final_css_classes ); ?>">
+            <?php
 
-			<span><?php echo wp_kses_post( $final_message ); ?></span>
+            $lumo_icon       = 'lumo:checkmark';
+            $lumo_icon_color = 'var(--lumo-success-color)';
+            $feedback        = 'Correct answer';
 
+            if ( str_contains( $answer_message_class, 'user_wrong' ) ) {
+
+                $lumo_icon       = 'lumo:cross';
+                $lumo_icon_color = 'var(--lumo-error-color)';
+                $feedback        = 'Incorrect answer';
+
+            }
+
+            ?>
+            <iron-icon style="color: <?php echo $lumo_icon_color; ?>" icon="<?php echo $lumo_icon; ?>"></iron-icon>
+            <small><?php echo $feedback; ?></small>
+            <?php
+
+            ?>
 		</div>
 		<?php
 	}
