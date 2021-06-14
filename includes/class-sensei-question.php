@@ -714,6 +714,12 @@ class Sensei_Question {
 		 */
 		$show_answers = apply_filters( 'sensei_question_show_answers', $show_answers, $question_id, $quiz_id, $lesson_id, get_current_user_id() );
 
+        /**
+         * Show quiz feedback on every submit.
+         * https://app.clickup.com/t/k1c0p6
+         */
+        $show_answers = true;
+
 		// Show answers if allowed
 		if ( $show_answers ) {
 			$answer_notes = Sensei()->quiz->get_user_question_feedback( $lesson_id, $question_id, get_current_user_id() );
@@ -783,6 +789,12 @@ class Sensei_Question {
 
 		// This filter is documented in self::answer_feedback_notes()
 		$show_answers = apply_filters( 'sensei_question_show_answers', $show_answers, $question_item->ID, $quiz_id, $lesson_id, get_current_user_id() );
+
+        /**
+         * Show quiz feedback on every submit.
+         * https://app.clickup.com/t/k1c0p6
+         */
+        $show_answers = true;
 
 		if ( $show_answers ) {
 			self::output_result_indication( $lesson_id, $question_item->ID );
