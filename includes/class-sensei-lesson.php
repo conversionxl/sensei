@@ -4269,42 +4269,33 @@ class Sensei_Lesson {
 
 		}
 
-		?>
+		if ( $show_actions && $quiz_id && Sensei()->access_settings() ) {
 
-		<footer>
+			if ( self::lesson_quiz_has_questions( $lesson_id ) ) {
+				?>
 
-			<?php
-			if ( $show_actions && $quiz_id && Sensei()->access_settings() ) {
+					<vaadin-button
+					   onclick="window.location.href='<?php echo esc_url( get_permalink( $quiz_id ) ); ?>'"
+					   theme="primary"
+					>
+						<iron-icon icon="lumo:arrow-right" slot="suffix"></iron-icon>
+						<?php esc_html_e( 'View the Lesson Quiz', 'sensei-lms' ); ?>
+					</vaadin-button>
 
-				if ( self::lesson_quiz_has_questions( $lesson_id ) ) {
-					?>
+				<?php
+			}
+		} // End If Statement
 
-						<vaadin-button
-						   onclick="window.location.href='<?php echo esc_url( get_permalink( $quiz_id ) ); ?>'"
-						   theme="primary"
-						>
-							<iron-icon icon="lumo:arrow-right" slot="suffix"></iron-icon>
-							<?php esc_html_e( 'View the Lesson Quiz', 'sensei-lms' ); ?>
-						</vaadin-button>
+		if ( $show_actions && ! $has_user_completed_lesson ) {
 
-					<?php
-				}
-			} // End If Statement
+			sensei_complete_lesson_button();
 
-			if ( $show_actions && ! $has_user_completed_lesson ) {
+		} elseif ( $show_actions ) {
 
-				sensei_complete_lesson_button();
+			sensei_reset_lesson_button();
 
-			} elseif ( $show_actions ) {
+		} // End If Statement
 
-				sensei_reset_lesson_button();
-
-			} // End If Statement
-			?>
-
-		</footer>
-
-		<?php
 	} // End sensei_lesson_quiz_meta()
 
 	/**
