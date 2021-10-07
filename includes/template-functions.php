@@ -117,6 +117,10 @@ function sensei_start_course_form( $course_id ) {
 	$prerequisite_complete = sensei_check_prerequisite_course( $course_id );
 
 	if ( $prerequisite_complete ) {
+
+		// CXL UI action bar integration.
+		ob_start();
+
 		?><form id="sensei_start_course_form" method="POST" action="<?php echo esc_url( get_permalink( $course_id ) ); ?>">
 				<input type="hidden" name="<?php echo esc_attr( 'woothemes_sensei_start_course_noonce' ); ?>" id="<?php echo esc_attr( 'woothemes_sensei_start_course_noonce' ); ?>" value="<?php echo esc_attr( wp_create_nonce( 'woothemes_sensei_start_course_noonce' ) ); ?>" />
 				<input type="hidden" name="course_start" value="1"/>
@@ -132,6 +136,16 @@ function sensei_start_course_form( $course_id ) {
 				</vaadin-button>
 			</form>
 			<?php
+		$action_html = ob_get_clean();
+
+		add_filter( 'cxl_app_layout_action_bar_actions', static function( array $actions ) use ( $action_html ): array {
+
+			$actions['primary'] .= $action_html;
+
+			return $actions;
+
+		} );
+
 	} // End If Statement
 } // End sensei_start_course_form()
 
