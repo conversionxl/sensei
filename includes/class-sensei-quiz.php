@@ -1363,7 +1363,7 @@ class Sensei_Quiz {
 
 			add_filter( 'cxl_app_layout_action_bar_actions', static function( array $actions ) use ( $action_html ): array {
 
-				$actions['primary'] = $action_html;
+				$actions['primary'] .= $action_html;
 
 				return $actions;
 
