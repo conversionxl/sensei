@@ -880,7 +880,7 @@ class Sensei_Question {
 			}
 
 			?>
-			<iron-icon style="color: <?php echo $lumo_icon_color; ?>" icon="<?php echo $lumo_icon; ?>"></iron-icon>
+			<vaadin-icon style="color: <?php echo $lumo_icon_color; ?>" icon="<?php echo $lumo_icon; ?>"></vaadin-icon>
 			<small><?php echo $feedback; ?></small>
 		</div>
 		<?php

@@ -1056,7 +1056,7 @@ class Sensei_Frontend {
 				   theme="primary"
 				   onclick="document.getElementById('sensei_lesson_button_form').submit();"
 				>
-					<iron-icon icon="vaadin:check-circle" slot="prefix"></iron-icon>
+					<vaadin-icon icon="vaadin:check-circle" slot="prefix"></vaadin-icon>
 					<?php esc_html_e( 'Complete Lesson', 'sensei-lms' ); ?>
 				</vaadin-button>
 
@@ -1098,7 +1098,7 @@ class Sensei_Frontend {
 				theme="primary contrast"
 				onclick="document.getElementById('sensei_lesson_button_form').submit()"
 			>
-				<iron-icon icon="lumo:reload" slot="prefix"></iron-icon>
+				<vaadin-icon icon="lumo:reload" slot="prefix"></vaadin-icon>
 				<?php esc_html_e( 'Reset Lesson', 'sensei-lms' ); ?>
 			</vaadin-button>
 

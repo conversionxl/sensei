@@ -4594,7 +4594,7 @@ class Sensei_Lesson {
 					   	onclick="window.location.href='<?php echo esc_url( get_permalink( $quiz_id ) ); ?>'"
 					   	theme="primary"
 					>
-						<iron-icon icon="lumo:arrow-right" slot="suffix"></iron-icon>
+						<vaadin-icon icon="lumo:arrow-right" slot="suffix"></vaadin-icon>
 						<?php esc_html_e( 'View the Lesson Quiz', 'sensei-lms' ); ?>
 					</vaadin-button>
 				<?php

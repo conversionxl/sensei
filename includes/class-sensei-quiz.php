@@ -1321,7 +1321,7 @@ class Sensei_Quiz {
 					class="quiz-submit reset"
 					theme="tertiary contrast"
 				>
-					<iron-icon icon="lumo:reload" slot="suffix"></iron-icon>
+					<vaadin-icon icon="lumo:reload" slot="suffix"></vaadin-icon>
 					<?php esc_html_e( 'Reset quiz', 'sensei-lms' ); ?>
 				</vaadin-button>
 
@@ -1344,7 +1344,7 @@ class Sensei_Quiz {
 					 class="quiz-submit complete"
 					 theme="primary"
 				 >
-					<iron-icon icon="vaadin:check-circle" slot="suffix"></iron-icon>
+					<vaadin-icon icon="vaadin:check-circle" slot="suffix"></vaadin-icon>
 					 <?php esc_html_e( 'Complete quiz', 'sensei-lms' ); ?>
 				 </vaadin-button>
 
