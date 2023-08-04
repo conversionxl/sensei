@@ -1358,6 +1358,7 @@ class Sensei_Quiz {
 					((container, d) => {
 						d.querySelectorAll(`div[slot="action-bar"] vaadin-button[type="submit"].quiz-submit`).forEach((el) => {
 							el.onclick = (e) => {
+								el.setAttribute('disabled', 1);
 								d.getElementById('cxl_sensei_quiz_submit_name').setAttribute('name', e.target.getAttribute('name'));
 								d.querySelector(`${container} > form`).submit();
 							};
