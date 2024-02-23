@@ -1361,6 +1361,8 @@ class Sensei_Quiz {
 								el.setAttribute('disabled', 1);
 								d.getElementById('cxl_sensei_quiz_submit_name').setAttribute('name', e.target.getAttribute('name'));
 								d.querySelector(`${container} > form`).submit();
+								// Perform actions after the submit event so they don't intefere.
+								el.setAttribute('pending', '');
 							};
 						});
 					})('.quiz-questions', document);

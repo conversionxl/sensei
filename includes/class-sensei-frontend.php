@@ -1054,7 +1054,7 @@ class Sensei_Frontend {
 				   name="quiz_complete"
 				   class="quiz-submit complete"
 				   theme="primary"
-				   onclick="document.getElementById('sensei_lesson_button_form').submit();"
+				   onclick="document.getElementById('sensei_lesson_button_form').submit(); this.disabled = true; this.setAttribute('pending', '');"
 				>
 					<vaadin-icon icon="vaadin:check-circle" slot="prefix"></vaadin-icon>
 					<?php esc_html_e( 'Complete Lesson', 'sensei-lms' ); ?>
