@@ -1333,7 +1333,7 @@ class Sensei_Quiz {
 					type="submit"
 					name="quiz_save"
 					class="quiz-submit save"
-					theme="contrast"
+					theme="tertiary contrast"
 				>
 					<?php esc_html_e( 'Save quiz', 'sensei-lms' ); ?>
 				</vaadin-button>
