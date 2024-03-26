@@ -1321,8 +1321,10 @@ class Sensei_Quiz {
 					class="quiz-submit reset"
 					theme="tertiary contrast"
 				>
-					<vaadin-icon icon="lumo:reload" slot="suffix"></vaadin-icon>
-					<?php esc_html_e( 'Reset quiz', 'sensei-lms' ); ?>
+					<span class="mobile"><?php esc_html_e( 'Reset', 'sensei-lms' ); ?></span>
+					<span class="desktop">
+						<?php esc_html_e( 'Reset quiz', 'sensei-lms' ); ?>
+					</span>
 				</vaadin-button>
 
 			<?php } ?>
@@ -1335,18 +1337,32 @@ class Sensei_Quiz {
 					class="quiz-submit save"
 					theme="tertiary contrast"
 				>
-					<?php esc_html_e( 'Save quiz', 'sensei-lms' ); ?>
+					<span class="mobile"><?php esc_html_e( 'Save', 'sensei-lms' ); ?></span>
+					<span class="desktop"><?php esc_html_e( 'Save quiz', 'sensei-lms' ); ?></span>
 				</vaadin-button>
 
-				<vaadin-button
-					 type="submit"
-					 name="quiz_complete"
-					 class="quiz-submit complete"
-					 theme="primary"
-				 >
-					<vaadin-icon icon="vaadin:check-circle" slot="suffix"></vaadin-icon>
-					 <?php esc_html_e( 'Complete quiz', 'sensei-lms' ); ?>
-				 </vaadin-button>
+				<div class="mobile">
+					<vaadin-button
+						type="submit"
+						name="quiz_complete"
+						class="quiz-submit complete"
+						theme="primary"
+					>
+						<?php esc_html_e( 'Submit', 'sensei-lms' ); ?>
+					</vaadin-button>
+				</div>
+
+				<div class="desktop">
+					<vaadin-button
+						type="submit"
+						name="quiz_complete"
+						class="quiz-submit complete"
+						theme="primary"
+					>
+						<?php esc_html_e( 'Complete quiz', 'sensei-lms' ); ?>
+						<vaadin-icon icon="vaadin:check-circle" slot="suffix"></vaadin-icon>
+					</vaadin-button>
+				</div>
 
 				<?php }?>
 
