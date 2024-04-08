@@ -1315,7 +1315,7 @@ class Sensei_Quiz {
 
 			<?php if ( isset( $reset_quiz_allowed ) && $reset_quiz_allowed ) { ?>
 
-				<div class="mobile">
+				<div class="pure-hidden-lg pure-hidden-md pure-hidden-ret pure-hidden-xl">
 					<vaadin-button
 						type="submit"
 						name="quiz_reset"
@@ -1325,7 +1325,7 @@ class Sensei_Quiz {
 						<?php esc_html_e( 'Reset', 'sensei-lms' ); ?>
 					</vaadin-button>
 				</div>
-				<div class="desktop">
+				<div class="pure-hidden-sm pure-hidden-xs">
 					<vaadin-button
 							type="submit"
 							name="quiz_reset"
@@ -1340,7 +1340,7 @@ class Sensei_Quiz {
 
 			<?php if ( '' == $user_quiz_grade && ( ! $user_lesson_status || 'ungraded' !== $user_lesson_status->comment_approved ) ) { ?>
 
-				<div class="mobile">
+				<div class="pure-hidden-lg pure-hidden-md pure-hidden-ret pure-hidden-xl">
 					<vaadin-button
 						type="submit"
 						name="quiz_save"
@@ -1350,7 +1350,7 @@ class Sensei_Quiz {
 						<?php esc_html_e( 'Save', 'sensei-lms' ); ?>
 					</vaadin-button>
 				</div>
-				<div class="desktop">
+				<div class="pure-hidden-sm pure-hidden-xs">
 					<vaadin-button
 						type="submit"
 						name="quiz_save"
@@ -1361,7 +1361,7 @@ class Sensei_Quiz {
 					</vaadin-button>
 				</div>
 
-				<div class="mobile">
+				<div class="pure-hidden-lg pure-hidden-md pure-hidden-ret pure-hidden-xl">
 					<vaadin-button
 						type="submit"
 						name="quiz_complete"
@@ -1371,7 +1371,7 @@ class Sensei_Quiz {
 						<?php esc_html_e( 'Submit', 'sensei-lms' ); ?>
 					</vaadin-button>
 				</div>
-				<div class="desktop">
+				<div class="pure-hidden-sm pure-hidden-xs">
 					<vaadin-button
 						type="submit"
 						name="quiz_complete"
