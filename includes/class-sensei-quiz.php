@@ -1383,7 +1383,14 @@ class Sensei_Quiz {
 					</vaadin-button>
 				</div>
 
-				<?php }?>
+			<?php } ?>
+
+			<?php
+			$action_html = trim( ob_get_clean() );
+
+			if ( $action_html ) {
+				ob_start();
+			?>
 
 				<!--
 					Note: By default, Quiz actions render outside of relevant form `.quiz-questions form`,
@@ -1404,8 +1411,8 @@ class Sensei_Quiz {
 				</script>
 
 			<?php
-
-			$action_html = ob_get_clean();
+			$action_html .= ob_get_clean();
+			}
 
 			add_filter( 'cxl_app_layout_action_bar_actions', static function( array $actions ) use ( $action_html ): array {
 
